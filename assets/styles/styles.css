@@ -1,0 +1,47 @@
+@media print {
+  #settings {
+    display: none;
+    box-shadow: none;
+    z-index: 0;
+  }
+  #cv {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #cv .cv {
+    margin: 0;
+    border: none;
+    padding: 0;
+    transform: none;
+    box-shadow: none;
+  }
+
+  #cv #credit {
+    display: none;
+  }
+}
+
+:root {
+  --bg-color: #f3f4f6;
+  --primary: #5B21B6;
+  --primary-darker: #4C1D95;
+  --pink: #9D174D;
+  --pink-darker: #831843;
+  --purple: #5B21B6;
+  --purple-darker: #4C1D95;
+  --indigo: #3730A3;
+  --indigo-darker: #312E81;
+  --blue: #1E40AF;
+  --blue-darker: #1E3A8A;
+  --green: #065F46;
+  --green-darker: #064E3B;
+  --yellow: #F59E0B;
+  --yellow-darker: #D97706;
+  --red: #DC2626;
+  --red-darker: #B91C1C;
+  --black: #1F2937;
+  --black-darker: #111827;
+}
