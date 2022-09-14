@@ -5,10 +5,9 @@
     <header class="container">
         <!-- Navbar -->
         <nav
-            class="flex justify-between md:justify-around py-4 bg-white/80 backdrop-blur-md shadow-md w-full px-10 fixed top-0 left-0 right-0 z-10 px-8 md:px-3">
+            class="flex justify-end py-4 bg-white/80 backdrop-blur-md shadow-md w-full px-10 fixed top-0 left-0 right-0 z-10 px-8 md:px-3">
             <!-- Logo Container -->
-            <div class="flex items-center">
-                <!-- Logo -->
+            <!-- <div class="flex items-center">
                 <a class="cursor-pointer">
                     <h3 class="text-2xl font-medium text-blue-500">
                         <img
@@ -17,10 +16,10 @@
                             alt="Store Logo" />
                     </h3>
                 </a>
-            </div>
+            </div> -->
 
             <!-- Links Section -->
-            <div
+            <!-- <div
                 class="items-center md:space-x-8 justify-center justify-items-start md:justify-items-center md:flex md:pt-2 w-full left-0 top-16 px-5 md:px-10 py-3 md:py-0 border-t md:border-t-0">
                 <a
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
@@ -51,12 +50,12 @@
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
                     About Us
                 </a>
-            </div>
+            </div> -->
 
             <!-- Auth Links -->
             <div class="flex items-center space-x-5 hidden md:flex">
                 <!-- Register -->
-                <a
+                <!-- <a
                     class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300">
                     <svg
                         class="fill-current h-5 w-5 mr-2 mt-0.5"
@@ -71,10 +70,15 @@
                     </svg>
 
                     Register
-                </a>
+                </a> -->
 
                 <!-- Login -->
-                <a
+                <button
+                    class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-black rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
+                    @click="signIn"
+                    >Login with NEAR</button
+                >
+                <!-- <a
                     class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600">
                     <svg
                         class="fill-current h-5 w-5 mr-2 mt-0.5"
@@ -89,11 +93,11 @@
                     </svg>
 
                     Login
-                </a>
+                </a> -->
             </div>
 
             <!-- Hamberger Menu -->
-            <button
+            <!-- <button
                 class="w-10 h-10 md:hidden justify-self-end rounded-full hover:bg-gray-100">
                 <svg
                     class="mx-auto"
@@ -105,7 +109,7 @@
                     viewBox="0 0 24 24">
                     <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
                 </svg>
-            </button>
+            </button> -->
         </nav>
     </header>
 
@@ -113,7 +117,7 @@
     <section
         class="flex flex-wrap items-center -mx-3 font-sans px-4 mx-auto w-full lg:max-w-screen-lg sm:max-w-screen-sm md:max-w-screen-md pb-20">
         <!-- Column-1 -->
-        <div class="px-3 w-full lg:w-2/5">
+        <div class="px-3 w-full lg:w-3/5">
             <div
                 class="mx-auto mb-8 max-w-lg text-center lg:mx-0 lg:max-w-md lg:text-left">
                 <h2 class="mb-4 text-3xl font-bold text-left lg:text-5xl">
@@ -133,20 +137,16 @@
             </div>
 
             <div class="text-center lg:text-left">
-                <!-- <a
-                    class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-blue-500 rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
-                    >Key Features</a
+                 <button
+                    class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-black rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
+                    @click="signIn"
+                    >Sign in with NEAR Wallet</button
                 >
-
-                <a
-                    class="block visible py-4 px-8 text-xs font-semibold leading-none bg-white rounded border border-solid cursor-pointer sm:inline-block border-slate-200 text-slate-500"
-                    >How We Work?</a
-                > -->
             </div>
         </div>
 
         <!-- Column-2 -->
-        <div class="px-3 mb-12 w-full lg:mb-0 lg:w-3/5">
+        <div class="px-3 mb-12 w-full lg:mb-0 lg:w-2/5">
             <!-- Illustrations Container -->
             <div class="flex justify-center items-center">
                 <svg
@@ -296,329 +296,26 @@
             </div>
         </div>
     </section>
-
-    <!-- Parallax Background -->
-    <section
-        class="flex flex-col w-full h-[500px] bg-cover bg-fixed bg-center flex justify-center items-center"
-        style="
-            background-image: url(https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?auto=format&fit=crop&w=880&q=80);
-        ">
-        <h1 class="text-white text-5xl font-semibold mt-20 mb-10">
-            This is Parallax Effect
-        </h1>
-
-        <span class="text-center font-bold my-20 text-white/90">
-            <a
-                href="https://egoistdeveloper.github.io/twcss-to-sass-playground/"
-                target="_blank"
-                class="text-white/90 hover:text-white">
-                Convetert to SASS
-            </a>
-
-            <hr class="my-4" />
-
-            <a
-                href="https://unsplash.com/photos/8Pm_A-OHJGg"
-                target="_blank"
-                class="text-white/90 hover:text-white">
-                Image Source
-            </a>
-
-            <hr class="my-4" />
-
-            <p>
-                <a
-                    href="https://github.com/EgoistDeveloper/my-tailwind-components/blob/main/src/templates/parallax-landing-page.html"
-                    target="_blank"
-                    class="text-white/90 hover:text-white">
-                    Source Code
-                </a>
-                |
-                <a
-                    href="https://egoistdeveloper.github.io/my-tailwind-components/./src/templates/parallax-landing-page.html"
-                    target="_blank"
-                    class="text-white/90 hover:text-white">
-                    Full Preview
-                </a>
-            </p>
-        </span>
-    </section>
-
-    <!-- Content -->
-    <section class="p-20 space-y-8">
-        <h1 class="text-4xl text-center my-20">Tempor sit labore nostrud</h1>
-
-        <p>
-            Exercitation non Lorem exercitation tempor amet ad esse velit. Anim
-            deserunt id nulla quis ex magna culpa exercitation. Mollit consequat
-            enim eiusmod cupidatat commodo eiusmod nulla. Id quis amet incididunt
-            cillum dolore consectetur nulla incididunt laborum excepteur
-            consectetur consectetur sunt tempor. Minim fugiat sint sunt ad elit
-            laboris est sit est laboris labore do velit. Cillum aliquip pariatur
-            deserunt eiusmod. Consequat irure nulla adipisicing deserunt culpa.
-            Veniam enim deserunt sint consequat labore. Enim ullamco ea aute duis
-            et nostrud voluptate fugiat consectetur et velit cillum anim dolore.
-            In exercitation proident proident nostrud voluptate. Fugiat elit esse
-            labore pariatur ex. Ex labore esse voluptate nisi in. Ad anim deserunt
-            reprehenderit est. Aliquip pariatur nulla dolor amet quis aliqua sit
-            nisi officia enim velit. Ad enim eu dolor quis ipsum. Nulla amet
-            consectetur adipisicing ullamco qui tempor dolor excepteur dolore anim
-            pariatur quis laboris consequat. Consectetur ullamco consectetur minim
-            eiusmod quis veniam esse consectetur anim nostrud est pariatur
-            laborum. Mollit tempor minim amet esse. Lorem officia consequat
-            eiusmod sunt. Proident occaecat velit et consequat irure est cupidatat
-            tempor ullamco. Aliquip est pariatur ea ut qui ad sit dolor laboris
-            adipisicing officia eiusmod sit. Proident Lorem ex cillum sint
-            cupidatat amet nulla veniam laborum velit pariatur. Fugiat excepteur
-            culpa sunt est anim sunt. Ea voluptate non do proident sunt ad cillum
-            enim esse.
-        </p>
-
-        <p>
-            Incididunt eu pariatur laborum reprehenderit duis ex cillum fugiat.
-            Occaecat tempor commodo officia esse reprehenderit commodo. Irure nisi
-            culpa anim velit esse do esse veniam dolore fugiat. Non anim elit ad
-            ad esse veniam dolore labore consectetur nulla dolor occaecat quis
-            tempor. Ad do exercitation cillum duis consequat. Ea anim aute elit
-            velit duis quis. Anim sint ut occaecat officia id exercitation ea
-            incididunt exercitation sint ex. Reprehenderit ut qui eiusmod
-            cupidatat incididunt ad reprehenderit culpa tempor quis. Elit eu dolor
-            anim tempor eu fugiat voluptate dolor aliqua sint ex proident ullamco.
-            Labore deserunt velit quis cupidatat aliquip elit do labore ut.
-            Laborum dolore incididunt officia esse reprehenderit pariatur ullamco
-            consectetur tempor officia. Dolor culpa irure enim aute ex non veniam
-            eiusmod ipsum elit est sit mollit dolor. Est ad anim pariatur
-            consequat ad sit nisi.
-        </p>
-
-        <p>
-            Ipsum ea ad fugiat incididunt ea sit laborum cupidatat in ullamco
-            ullamco fugiat et id. Sit commodo enim enim veniam do. Ad id ad tempor
-            deserunt cupidatat reprehenderit ullamco officia excepteur culpa.
-            Officia amet in do voluptate exercitation pariatur officia et sit.
-            Adipisicing deserunt do aliquip ad id elit sint voluptate sit anim
-            nulla pariatur dolore. Lorem do commodo aute veniam deserunt magna
-            commodo cillum magna veniam. Ea amet nostrud commodo nisi adipisicing
-            cillum commodo. Nostrud aliquip cupidatat veniam culpa aute officia
-            commodo velit. Laborum quis aute nulla amet officia esse proident sunt
-            irure dolor fugiat incididunt occaecat. Commodo esse eiusmod fugiat eu
-            enim nisi sit id ut adipisicing. Enim nisi mollit ea aliqua nisi qui
-            ullamco eu velit et ullamco. Magna eiusmod eiusmod culpa proident
-            minim laboris fugiat enim laborum quis mollit minim do nisi. Elit
-            irure incididunt duis ullamco exercitation nulla fugiat. Eu ullamco
-            aliquip aute consectetur excepteur consequat. Non nostrud officia sint
-            enim et ad sunt amet pariatur deserunt enim reprehenderit. Aute Lorem
-            adipisicing laborum labore labore tempor officia officia reprehenderit
-            incididunt enim officia laborum. Proident eu irure occaecat ipsum elit
-            elit anim eu aute commodo ullamco reprehenderit incididunt elit.
-            Mollit voluptate eiusmod ullamco fugiat ex enim in fugiat et
-            consectetur duis do. Et aliqua ad labore labore ea ipsum nostrud
-            veniam et reprehenderit. Sint ad sit voluptate consequat cillum do
-            fugiat Lorem. Pariatur ad ad reprehenderit cupidatat nulla ipsum
-            voluptate. Dolore pariatur ea laboris est excepteur.
-        </p>
-    </section>
 </main>
-
-<!-- Footer -->
-<footer class="bg-gray-800 pt-10 sm:mt-10 pt-10 w-full">
-    <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
-        <!-- Col-1 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Getting Started
-            </div>
-
-            <!-- Links -->
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Installation
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Release Notes
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Upgrade Guide
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Using with Preprocessors
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Optimizing for Production
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Browser Support
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                IntelliSense
-            </a>
-        </div>
-
-        <!-- Col-2 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Core Concepts
-            </div>
-
-            <!-- Links -->
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Utility-First
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Responsive Design
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Hover, Focus, & Other States
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Dark Mode
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Adding Base Styles
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Extracting Components
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Adding New Utilities
-            </a>
-        </div>
-
-        <!-- Col-3 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Customization
-            </div>
-
-            <!-- Links -->
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuration
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Theme Configuration
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Breakpoints
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Colors
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Customizing Spacing
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Configuring Variants
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Plugins
-            </a>
-        </div>
-
-        <!-- Col-3 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Community
-            </div>
-
-            <!-- Links -->
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                GitHub
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Discord
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Twitter
-            </a>
-            <a
-                href="#"
-                class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                YouTube
-            </a>
-        </div>
-    </div>
-
-    <!-- Copyright Bar -->
-    <div class="pt-2">
-        <div
-            class="flex pb-5 px-3 m-auto pt-5 border-t border-gray-500 text-gray-400 text-sm flex-col md:flex-row max-w-6xl">
-            <div class="mt-2">© Copyright 1998-year. All Rights Reserved.</div>
-
-            <!-- Required Unicons (if you want) -->
-            <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-facebook-f"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-twitter-alt"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-youtube"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-linkedin"></i>
-                </a>
-                <a href="#" class="w-6 mx-1">
-                    <i class="uil uil-instagram"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</footer>
 </div>
 </template>
-<script>
+<script lang="ts">
+import Vue from 'vue';
+import { Wallet } from '../near/near-wallet';
+
+export default Vue.extend({
+  name: 'Landing',
+  components: {},
+  methods: {
+        signIn() {
+            // TODO: Create this at the start
+            const contractId = "dev-1663093630511-23092692064929";
+            const wallet = new Wallet({contractId: contractId});
+            wallet.signIn();
+            // const contract = new Contract({wallet: wallet});
+        },
+    }   
+});
 //     <!-- Gogole Fonts -->
 // <link rel="preconnect" href="https://fonts.googleapis.com" />
 // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
