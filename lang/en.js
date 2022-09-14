@@ -27,6 +27,7 @@ export default {
   'download-cv-pdf': 'Download your CV as PDF',
   'chrome-recommended': 'Firefox recommended for ATSs',
   'submit-cv': 'Submit your CV for review',
+  'submit-cv-bottom-line': '(COST 2 NEAR)',
   'job-title': 'Job Title / Current Position',
   'first-name': 'First name',
   'last-name': 'Last name',
@@ -43,6 +44,6 @@ export default {
   'clear-settings': 'Clear CV settings',
   description:
     'With CvFy you can create, preview and save your CV as PDF easily and for free! Available in English and Spanish. Built with Nuxt.',
-  'title-tag': 'CvFy - Create your CV as PDF in a few minutes!',
+  'title-tag': 'DeCredify - Get verified on your skills easily!',
   projects: 'projects',
 };

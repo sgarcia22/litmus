@@ -359,6 +359,7 @@
           @click=""
         >
           <span>{{ $t('submit-cv') }}</span>
+          <span>{{ $t('submit-cv-bottom-line') }}</span>
         </button>
       </div>
       <!-- CTA -->
