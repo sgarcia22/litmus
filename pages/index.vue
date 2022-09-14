@@ -25,7 +25,7 @@
                   <h2 class="mb-4 text-3xl font-bold text-left lg:text-5xl">
                       Decentralized
   
-                      <span class="text-5xl text-blue-500 leading-relaxeds"
+                      <span class="text-5xl text-purple-600 leading-relaxeds"
                           >Credential
                       </span>
   

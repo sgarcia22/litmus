@@ -356,7 +356,7 @@
         <button
           type="button"
           class="form__btn flex flex-col justify-center"
-          @click=""
+          @click="submitCV()"
         >
           <span>{{ $t('submit-cv') }}</span>
           <span>{{ $t('submit-cv-bottom-line') }}</span>
@@ -469,6 +469,12 @@ export default Vue.extend({
       resetForm,
     };
   },
+  methods: {
+    submitCV() {
+      // Call contract and extract 2 NEAR
+      
+    }
+  }
 });
 </script>
 <style lang="postcss">
