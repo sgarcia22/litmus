@@ -54,7 +54,7 @@ export class Contract {
 
     // Add applicant to queue for review and charge them a fee
     @call({payableFunction: true})
-    addApplicantToQueue({}) {
+    add_applicant_to_queue({}) {
         let attachedAmount: bigint = near.attachedDeposit() as bigint;
         assert(attachedAmount > BigInt(2000000000000000000000000), `Attach at least ${ BigInt(2000000000000000000000000)} yoctoNEAR`);
         this.applicantsInQueue.set(near.predecessorAccountId());

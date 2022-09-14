@@ -1,17 +1,17 @@
 // import { getConfig } from 'vue-near'
 import * as nearApi from 'near-api-js'
 
-let options = {
-  // Needs the environment for the correct RPC to use
-  env: process.env.NODE_ENV || 'development',
-  config: {
-    appTitle: 'Certify',
-    contractName: 'dev-1663093630511-23092692064929t',
-    // TODO: Determine the default behavior for succeeding or failing
-    successUrl: '',
-    failureUrl: ''
-  },
-}
+// let options = {
+//   // Needs the environment for the correct RPC to use
+//   env: process.env.NODE_ENV || 'development',
+//   config: {
+//     appTitle: 'Certify',
+//     contractName: 'dev-1663093630511-23092692064929',
+//     // TODO: Determine the default behavior for succeeding or failing
+//     successUrl: '',
+//     failureUrl: ''
+//   },
+// }
 
 export default async ({ app }, inject) => {
 //   let config = getConfig(options.env, options.config)
@@ -30,7 +30,6 @@ const connectionConfig = {
 
   const near = await nearApi.connect(connectionConfig)
   const wallet = new nearApi.WalletConnection(near)
-
   // make the wallet accessible through the injected near plugin; this.$near.wallet
   near.wallet = wallet
 

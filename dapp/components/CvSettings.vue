@@ -379,6 +379,7 @@ import CvDisplayCheckbox from '~/components/CvDisplayCheckbox.vue';
 import CvInputTags from '~/components/CvInputTags.vue';
 import ExpansionPanel from '~/components/ExpansionPanel.vue';
 import { useCvState } from '~/data/useCvState';
+import { addToQueue } from '~/near/near-interface.js';
 
 export default Vue.extend({
   name: 'CvSettings',
@@ -472,12 +473,15 @@ export default Vue.extend({
   methods: {
     async submitCV() {
       // Extract 2 NEAR and send to the smart contract as a fee for applying
+      addToQueue((this as any).$near.wallet);
+
+      // Was trying to send money directly, contract is a better solution
       // TODO - Figure out why I need to put type for this here
       // https://stackoverflow.com/questions/56002310/property-xxx-does-not-exist-on-type-combinedvueinstancevue-read
-      await (this as any).$near.wallet.sendMoney(
-        "dev-1663093630511-23092692064929", // receiver account
-        "2000000000000000000000000" // amount in yoctoNEAR // TODO - check if correct value
-      );
+      // await (this as any).$near.wallet.sendMoney(
+      //   "dev-1663093630511-23092692064929", // receiver account
+      //   "2000000000000000000000000" // amount in yoctoNEAR // TODO - check if correct value
+      // );
     }
   }
 });
