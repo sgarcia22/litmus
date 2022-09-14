@@ -12,6 +12,8 @@ import { setupWalletSelector } from '@near-wallet-selector/core';
 import { setupLedger } from '@near-wallet-selector/ledger';
 import { setupMyNearWallet } from '@near-wallet-selector/my-near-wallet';
 
+
+// import {store} from '../store';
 const THIRTY_TGAS = '30000000000000';
 const NO_DEPOSIT = '0';
 
@@ -37,10 +39,10 @@ export class Wallet {
     const isSignedIn = this.walletSelector.isSignedIn();
 
     if (isSignedIn) {
-      const { accounts } = this.walletSelector.store.getState();
+      const { accounts } = store.getState();
 
       this.wallet = await this.walletSelector.wallet();
-      this.accountId = accounts[0].accountId;
+      // this.accountId = accounts[0].accountId;
     }
 
     return isSignedIn;
@@ -76,8 +78,8 @@ export class Wallet {
   }
 
   // Call a method that changes the contract's state
-  async callMethod({ contractId = this.contractId, method, args = {}, gas = THIRTY_TGAS, deposit = NO_DEPOSIT }) {
-    const { accountId } = this.walletSelector.store.getState().accounts[0];
+  async callMethod({ accountId, contractId = this.contractId, method, args = {}, gas = THIRTY_TGAS, deposit = NO_DEPOSIT }) {
+    // const { accountId } = store.getState().accounts[0];
 
     // Sign a transaction with the "FunctionCall" action
     return await this.wallet.signAndSendTransaction({

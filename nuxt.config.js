@@ -48,7 +48,12 @@ export default {
   css: ['@/assets/styles/styles.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: [
+    {
+      src: '~/plugins/vue-near.js',
+      mode: 'client'
+    },
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: false,
@@ -79,6 +84,11 @@ export default {
         'postcss-nested': {},
       },
     },
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
+    }
   },
   tailwindcss: {
     configPath: '~/tailwind.config.js',

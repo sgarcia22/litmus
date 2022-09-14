@@ -23,8 +23,7 @@
     "chrome-aws-lambda": "^5.5.0",
     "core-js": "^3.6.5",
     "near-api-js": "^1.0.0",
-    "nuxt": "^2.15.7",
-    "vuex": "^4.0.2"
+    "nuxt": "^2.15.7"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",

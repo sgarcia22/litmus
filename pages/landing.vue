@@ -73,11 +73,12 @@
                 </a> -->
 
                 <!-- Login -->
-                <button
+                <!-- <button
                     class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-black rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
                     @click="signIn"
                     >Login with NEAR</button
-                >
+                > -->
+                <NearLogin></NearLogin>
                 <!-- <a
                     class="flex text-gray-600 cursor-pointer transition-colors duration-300 font-semibold text-blue-600">
                     <svg
@@ -137,11 +138,7 @@
             </div>
 
             <div class="text-center lg:text-left">
-                 <button
-                    class="block visible py-4 px-8 mb-4 text-xs font-semibold tracking-wide leading-none text-white bg-black rounded cursor-pointer sm:mr-3 sm:mb-0 sm:inline-block"
-                    @click="signIn"
-                    >Sign in with NEAR Wallet</button
-                >
+                <NearLogin></NearLogin>
             </div>
         </div>
 
@@ -301,18 +298,17 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import { Wallet } from '../near/near-wallet';
+import NearLogin from '@/components/NearLogin.vue';
+// import { Wallet } from '../near/near-wallet';
+// import * as nearAPI from "near-api-js";
+// import { debug } from 'console';
 
 export default Vue.extend({
   name: 'Landing',
-  components: {},
+  components: {NearLogin},
   methods: {
-        signIn() {
-            // TODO: Create this at the start
-            const contractId = "dev-1663093630511-23092692064929";
-            const wallet = new Wallet({contractId: contractId});
-            wallet.signIn();
-            // const contract = new Contract({wallet: wallet});
+        async signIn() {
+           
         },
     }   
 });
