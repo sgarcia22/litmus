@@ -1,0 +1,44 @@
+[
+  {
+    "name": "index___en",
+    "path": "/en",
+    "component": "/Users/sam/Desktop/cvfy-main/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_7f625a6d"
+  },
+  {
+    "name": "index___es",
+    "path": "/es",
+    "component": "/Users/sam/Desktop/cvfy-main/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_7f625a6d"
+  },
+  {
+    "name": "resume",
+    "path": "/resume",
+    "component": "/Users/sam/Desktop/cvfy-main/pages/resume.vue",
+    "chunkName": "pages/resume",
+    "_name": "_21cc64a2"
+  },
+  {
+    "name": "resume___en",
+    "path": "/en/resume",
+    "component": "/Users/sam/Desktop/cvfy-main/pages/resume.vue",
+    "chunkName": "pages/resume",
+    "_name": "_21cc64a2"
+  },
+  {
+    "name": "resume___es",
+    "path": "/es/resume",
+    "component": "/Users/sam/Desktop/cvfy-main/pages/resume.vue",
+    "chunkName": "pages/resume",
+    "_name": "_21cc64a2"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/sam/Desktop/cvfy-main/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_7f625a6d"
+  }
+]
