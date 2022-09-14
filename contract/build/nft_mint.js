@@ -786,6 +786,46 @@ class VectorIterator {
 
 }
 
+class LookupSet {
+  constructor(keyPrefix) {
+    this.keyPrefix = keyPrefix;
+  }
+
+  contains(key) {
+    let storageKey = this.keyPrefix + JSON.stringify(key);
+    return storageHasKey(storageKey);
+  } // Returns true if the element was present in the set.
+
+
+  remove(key) {
+    let storageKey = this.keyPrefix + JSON.stringify(key);
+    return storageRemove(storageKey);
+  } // If the set did not have this value present, `true` is returned.
+  // If the set did have this value present, `false` is returned.
+
+
+  set(key) {
+    let storageKey = this.keyPrefix + JSON.stringify(key);
+    return !storageWrite(storageKey, '');
+  }
+
+  extend(keys) {
+    for (let key of keys) {
+      this.set(key);
+    }
+  }
+
+  serialize() {
+    return JSON.stringify(this);
+  } // converting plain object to class object
+
+
+  static deserialize(data) {
+    return new LookupSet(data.keyPrefix);
+  }
+
+}
+
 const ERR_INCONSISTENT_STATE$1 = "The collection is an inconsistent state. Did previous smart contract execution terminate unexpectedly?";
 class UnorderedMap {
   constructor(prefix) {
@@ -1408,13 +1448,15 @@ function internalNftIsApproved({
   return approvalId == approval;
 } //revoke a specific account from transferring the token on your behalf
 
-var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _class;
+var _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _dec7, _dec8, _dec9, _dec10, _dec11, _dec12, _dec13, _class;
 /// This spec can be treated like a version of the standard.
 const NFT_METADATA_SPEC = "nft-1.0.0"; /// This is the name of the NFT standard we're using
 
 const NFT_STANDARD_NAME = "nep171"; // @NearBindgen({})
 
-let Contract = (_dec = call({}), _dec2 = view({}), _dec3 = call({}), _dec4 = call({}), _dec5 = call({}), _dec6 = view({}), _dec7 = call({}), _dec8 = view({}), _dec9 = view({}), _dec10 = view({}), _dec11 = view({}), _dec12 = view({}), (_class = class Contract {
+let Contract = (_dec = call({
+  payableFunction: true
+}), _dec2 = call({}), _dec3 = view({}), _dec4 = call({}), _dec5 = call({}), _dec6 = call({}), _dec7 = view({}), _dec8 = call({}), _dec9 = view({}), _dec10 = view({}), _dec11 = view({}), _dec12 = view({}), _dec13 = view({}), (_class = class Contract {
   /*
       initialization function (can only be called once).
       this initializes the contract with metadata that was passed in and
@@ -1432,6 +1474,7 @@ let Contract = (_dec = call({}), _dec2 = view({}), _dec3 = call({}), _dec4 = cal
     this.tokensPerOwner = new LookupMap("tokensPerOwner");
     this.tokensById = new LookupMap("tokensById");
     this.tokenMetadataById = new UnorderedMap("tokenMetadataById");
+    this.applicantsInQueue = new LookupSet("applicantsInQueue");
     this.metadata = metadata;
   }
 
@@ -1439,6 +1482,17 @@ let Contract = (_dec = call({}), _dec2 = view({}), _dec3 = call({}), _dec4 = cal
     return new Contract({
       owner_id: ''
     });
+  }
+  /*
+      QUEUE
+  */
+  // Add applicant to queue for review and charge them a fee
+
+
+  addApplicantToQueue({}) {
+    let attachedAmount = attachedDeposit();
+    assert(attachedAmount > BigInt(2000000000000000000000000), `Attach at least ${BigInt(2000000000000000000000000)} yoctoNEAR`);
+    this.applicantsInQueue.set(predecessorAccountId());
   }
   /*
       MINT
@@ -1622,7 +1676,7 @@ let Contract = (_dec = call({}), _dec2 = view({}), _dec3 = call({}), _dec4 = cal
     });
   }
 
-}, (_applyDecoratedDescriptor(_class.prototype, "nft_mint", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "nft_mint"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_token", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "nft_token"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_transfer", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "nft_transfer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_transfer_call", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "nft_transfer_call"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_resolve_transfer", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "nft_resolve_transfer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_is_approved", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "nft_is_approved"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_approve", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "nft_approve"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_total_supply", [_dec8], Object.getOwnPropertyDescriptor(_class.prototype, "nft_total_supply"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_tokens", [_dec9], Object.getOwnPropertyDescriptor(_class.prototype, "nft_tokens"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_tokens_for_owner", [_dec10], Object.getOwnPropertyDescriptor(_class.prototype, "nft_tokens_for_owner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_supply_for_owner", [_dec11], Object.getOwnPropertyDescriptor(_class.prototype, "nft_supply_for_owner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_metadata", [_dec12], Object.getOwnPropertyDescriptor(_class.prototype, "nft_metadata"), _class.prototype)), _class)); // import { NearBindgen, near, call, view } from 'near-sdk-js';
+}, (_applyDecoratedDescriptor(_class.prototype, "addApplicantToQueue", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "addApplicantToQueue"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_mint", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "nft_mint"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_token", [_dec3], Object.getOwnPropertyDescriptor(_class.prototype, "nft_token"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_transfer", [_dec4], Object.getOwnPropertyDescriptor(_class.prototype, "nft_transfer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_transfer_call", [_dec5], Object.getOwnPropertyDescriptor(_class.prototype, "nft_transfer_call"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_resolve_transfer", [_dec6], Object.getOwnPropertyDescriptor(_class.prototype, "nft_resolve_transfer"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_is_approved", [_dec7], Object.getOwnPropertyDescriptor(_class.prototype, "nft_is_approved"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_approve", [_dec8], Object.getOwnPropertyDescriptor(_class.prototype, "nft_approve"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_total_supply", [_dec9], Object.getOwnPropertyDescriptor(_class.prototype, "nft_total_supply"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_tokens", [_dec10], Object.getOwnPropertyDescriptor(_class.prototype, "nft_tokens"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_tokens_for_owner", [_dec11], Object.getOwnPropertyDescriptor(_class.prototype, "nft_tokens_for_owner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_supply_for_owner", [_dec12], Object.getOwnPropertyDescriptor(_class.prototype, "nft_supply_for_owner"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "nft_metadata", [_dec13], Object.getOwnPropertyDescriptor(_class.prototype, "nft_metadata"), _class.prototype)), _class)); // import { NearBindgen, near, call, view } from 'near-sdk-js';
 // @NearBindgen({})
 // class HelloNear {
 //   greeting: string = "Hello";

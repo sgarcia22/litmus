@@ -470,9 +470,14 @@ export default Vue.extend({
     };
   },
   methods: {
-    submitCV() {
-      // Call contract and extract 2 NEAR
-      
+    async submitCV() {
+      // Extract 2 NEAR and send to the smart contract as a fee for applying
+      // TODO - Figure out why I need to put type for this here
+      // https://stackoverflow.com/questions/56002310/property-xxx-does-not-exist-on-type-combinedvueinstancevue-read
+      await (this as any).$near.wallet.sendMoney(
+        "dev-1663093630511-23092692064929", // receiver account
+        "2000000000000000000000000" // amount in yoctoNEAR // TODO - check if correct value
+      );
     }
   }
 });

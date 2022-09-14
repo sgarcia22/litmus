@@ -26,6 +26,7 @@ methods: {
         if (this.$near.wallet.isSignedIn()) {
             this.$router.push('resume')
         } else {
+            // TODO - make this an .env variable
             await this.$near.wallet.requestSignIn({ contractId: 'dev-1663093630511-23092692064929' })
             this.$router.push('resume')
              

@@ -1,5 +1,5 @@
 
-import { NearBindgen, near, call, view, LookupMap, UnorderedMap, Vector, UnorderedSet } from 'near-sdk-js'
+import { NearBindgen, near, call, view, LookupMap, UnorderedMap, Vector, UnorderedSet, LookupSet, assert } from 'near-sdk-js'
 import { NFTContractMetadata, Token, TokenMetadata, internalNftMetadata } from './metadata';
 import { internalMint } from './mint';
 import { internalNftTokens, internalSupplyForOwner, internalTokensForOwner, internalTotalSupply } from './enumeration';
@@ -21,6 +21,7 @@ export class Contract {
     tokenMetadataById: UnorderedMap;
     metadata: NFTContractMetadata;
     currentTokenId: 0;
+    applicantsInQueue: LookupSet;
 
     /*
         initialization function (can only be called once).
@@ -39,11 +40,24 @@ export class Contract {
         this.tokensPerOwner = new LookupMap("tokensPerOwner");
         this.tokensById = new LookupMap("tokensById");
         this.tokenMetadataById = new UnorderedMap("tokenMetadataById");
+        this.applicantsInQueue = new LookupSet("applicantsInQueue");
         this.metadata = metadata;
     }
 
     default() {
         return new Contract({owner_id: ''})
+    }
+
+    /*
+        QUEUE
+    */
+
+    // Add applicant to queue for review and charge them a fee
+    @call({payableFunction: true})
+    addApplicantToQueue({}) {
+        let attachedAmount: bigint = near.attachedDeposit() as bigint;
+        assert(attachedAmount > BigInt(2000000000000000000000000), `Attach at least ${ BigInt(2000000000000000000000000)} yoctoNEAR`);
+        this.applicantsInQueue.set(near.predecessorAccountId());
     }
 
     /*
