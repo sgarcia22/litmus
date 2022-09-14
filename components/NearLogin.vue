@@ -5,7 +5,6 @@
                     @click="signIn()"
                     >Login with NEAR
     </button>
-    <!-- <modal-base :modalOpen="modalOpen" @closeModal="closeModal()" /> -->
 </div>
 </template>
 
@@ -23,12 +22,13 @@ async mounted() {
     this.isLoggedIn = this.$near.wallet.isSignedIn()
 },
 methods: {
-    signIn() {
-        if (this.isLoggedIn) {
-            this.$near.wallet.signOut()
-            this.isLoggedIn = false
+    async signIn() {
+        if (this.$near.wallet.isSignedIn()) {
+            this.$router.push('resume')
         } else {
-            this.$near.wallet.requestSignIn({ contractId: 'dev-1663093630511-23092692064929' });
+            await this.$near.wallet.requestSignIn({ contractId: 'dev-1663093630511-23092692064929' })
+            this.$router.push('resume')
+             
         }
     },
 },
